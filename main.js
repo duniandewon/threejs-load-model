@@ -10,8 +10,10 @@ const three = new Three(
   sceneContainer.clientHeight
 );
 
-// file.addEventListener("change", () => {
-//   const url = file.files[0];
+file.addEventListener("change", () => {
+  const url = file.files[0];
 
-//   const model = URL.createObjectURL(url);
-// });
+  const model = URL.createObjectURL(url);
+  three.loadModel(model);
+  three.removeModels();
+});

@@ -1,17 +1,13 @@
-import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 class Model {
-  constructor(scene) {
+  constructor(scene, model) {
     this.scene = scene;
 
     this.loader = new GLTFLoader();
-    this.loader.setPath("../assets/demon_head/");
 
-    this.loader.load("scene.gltf", (gltf) => {
-      this.model = gltf.scene.children[0];
-
-      console.log(this.model);
+    this.loader.load(model, (gltf) => {
+      this.model = gltf.scene;
 
       this.model.castShadow = true;
       this.model.receiveShadow = true;
